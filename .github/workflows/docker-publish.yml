@@ -15,6 +15,6 @@ jobs:
           username: zommarin
           password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
       - name: 'Build the Docker image'
-        run: docker build . --file Dockerfile --tag zommarin/speedtest
+        run: docker build . --file Dockerfile --tag docker.io/zommarin/speedtest
       - name: 'Push the Docker image'
-        run: docker push zommarin/speedtest
+        run: docker push docker.io/zommarin/speedtest
