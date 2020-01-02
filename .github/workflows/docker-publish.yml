@@ -1,0 +1,20 @@
+name: Docker Publish
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout code'
+        uses: actions/checkout@v1
+      - name: 'Docker login'
+        uses: azure/docker-login@v1
+        with:
+          login-server: docker.io
+          username: zommarin
+          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+      - name: 'Build the Docker image'
+        run: docker build . --file Dockerfile --tag zommarin/speedtest
+      - name: 'Push the Docker image'
+        run: docker push zommarin/speedtest
