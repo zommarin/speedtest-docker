@@ -11,7 +11,6 @@ jobs:
       - name: 'Docker login'
         uses: azure/docker-login@v1
         with:
-          login-server: docker.io
           username: zommarin
           password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
       - name: 'Build the Docker image'
